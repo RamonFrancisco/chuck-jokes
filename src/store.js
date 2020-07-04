@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   createRootReducer(),
-  composeEnhancers(applyMiddleware(sagaMiddleware))
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 
 sagaMiddleware.run(rootSaga);

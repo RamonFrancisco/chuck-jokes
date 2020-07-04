@@ -8,18 +8,18 @@ export const callCategories = () => ({
   type: CALL_CATEGORIES,
 });
 
-export const callCategoriesFailed = error => ({
+export const callCategoriesFailed = (error) => ({
   type: CALL_CATEGORIES_FAILED,
   error,
 });
 
-export const callCategoriesSuccess = categories => ({
+export const callCategoriesSuccess = (categories) => ({
   type: CALL_CATEGORIES_SUCCESS,
   categories,
 });
 
 /* Action handlers */
-export const onCallCategories = state => ({
+export const onCallCategories = (state) => ({
   ...state,
   errors: {
     ...state.errors,
@@ -43,9 +43,9 @@ export const onCallCategoriesFailed = (state, { error }) => ({
   },
 });
 
-export const onCallCategoriesSuccess = (state, { data }) => ({
+export const onCallCategoriesSuccess = (state, { categories }) => ({
   ...state,
-  data,
+  data: categories,
   errors: {
     ...state.errors,
     callCategories: false,

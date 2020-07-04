@@ -1,5 +1,7 @@
 import { all, fork, put, call, takeLatest } from 'redux-saga/effects';
 
+import ChuckNorrisAPI from '../integrations/ChuckNorrisAPI';
+
 import {
   CALL_CATEGORIES,
   callCategoriesFailed,
@@ -8,7 +10,7 @@ import {
 
 function* callCategoriesSaga() {
   try {
-    const data = yield call();
+    const data = yield call(ChuckNorrisAPI.fetchCategories);
 
     yield put(callCategoriesSuccess(data));
   } catch (error) {
