@@ -1,4 +1,6 @@
-import { all, fork, put, call, takeLatest } from 'redux-saga/effects';
+import {
+  all, fork, put, call, takeLatest
+} from 'redux-saga/effects';
 
 import ChuckNorrisAPI from '../integrations/ChuckNorrisAPI';
 
