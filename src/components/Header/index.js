@@ -7,7 +7,7 @@ import { ROUTE_HOME } from '../../defaults/Routes';
 const Header = () => (
   <HeaderContent>
     <HeaderTitle>
-      <Link to={ROUTE_HOME}> Chuck jokes</Link>{' '}
+      <Link to={ROUTE_HOME}>Chuck jokes</Link>
     </HeaderTitle>
   </HeaderContent>
 );

@@ -41,22 +41,24 @@ const Jokes = () => {
       <Header />
       <Container>
         <Content>
-          {loading ? (
-            <Loading />
-          ) : (
-              <>
-                <BackCategories to={ROUTE_HOME}>
-                  <BsArrowLeftShort /> back
+          {loading
+            ? (<Loading />)
+            : (<>
+              <BackCategories to={ROUTE_HOME}>
+                <BsArrowLeftShort /> back
               </BackCategories>
-                <JokeContent>
-                  <JokeImage src={data.icon_url} alt="Chuck Norris" />
-                  <div>
-                    <JokeText>{data.value}</JokeText>
-                    <JokeSmallText>category: {categoryName}</JokeSmallText>
-                  </div>
-                </JokeContent>
-              </>
-            )}
+              <JokeContent>
+                <JokeImage src={data.icon_url} alt="Chuck Norris" />
+                <div>
+                  <JokeText>{data.value}</JokeText>
+                  <JokeSmallText>
+                    category: {categoryName}
+                  </JokeSmallText>
+                </div>
+              </JokeContent>
+            </>
+            )
+          }
           <Button onClick={handleJokeRequest}>See another joke</Button>
         </Content>
       </Container>

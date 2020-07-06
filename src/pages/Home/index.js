@@ -32,14 +32,13 @@ const Home = () => {
     <>
       <Header />
       <Container>
-        {loading ? (
-          <Loading />
-        ) : (
-            <>
-              <p>Select a category</p>
-              <CategoryList />
-            </>
-          )}
+        {loading
+          ? (<Loading />)
+          : (<>
+            <p>Select a category</p>
+            <CategoryList />
+          </>)
+        }
       </Container>
       <Footer />
     </>
