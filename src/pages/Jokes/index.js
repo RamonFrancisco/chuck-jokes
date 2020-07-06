@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsArrowLeftShort } from 'react-icons/bs';
 
@@ -29,7 +29,7 @@ const Jokes = () => {
   const loading = useSelector(({ jokes }) => jokes.loading.fetchRandomJoke);
   const handleJokeRequest = useCallback(
     () => dispatch(callFetchRandomJoke(categoryName)),
-    [dispatch, categoryName]
+    [dispatch, categoryName],
   );
 
   useEffect(() => {

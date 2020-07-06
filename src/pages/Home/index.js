@@ -21,11 +21,12 @@ const Home = () => {
     () => dispatch(callCategories()),
     [dispatch]
   );
+
   useEffect(() => {
     if (!categories.length) {
       handleCategoriesRequest();
     }
-  }, [handleCategoriesRequest]);
+  }, [handleCategoriesRequest, categories]);
 
   return (
     <>
