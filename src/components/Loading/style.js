@@ -10,28 +10,8 @@ const Circle = styled.div`
   border-top: 4px solid #000;
   border-radius: 50%;
   animation: loading 1.5s infinite linear;
-  -moz-animation: loading 1.5s infinite linear;
-  -webkit-animation: loading 1.5s infinite linear;
 
   @keyframes loading {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @-moz-keyframes loading {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @-webkit-keyframes loading {
     0% {
       transform: rotate(0deg);
     }

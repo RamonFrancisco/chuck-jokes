@@ -13,13 +13,13 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const loading = useSelector(
-    ({ category }) => category.loading.callCategories
+    ({ category }) => category.loading.callCategories,
   );
   const categories = useSelector(({ category }) => category.data);
 
   const handleCategoriesRequest = useCallback(
     () => dispatch(callCategories()),
-    [dispatch]
+    [dispatch],
   );
 
   useEffect(() => {
