@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const ContainerContent = styled.section`
+  padding: 30px 0;
   min-height: 100%;
   display: flex;
   flex-direction: column;
