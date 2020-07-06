@@ -17,10 +17,10 @@ const ACTIONS_HANDLERS = {
 const INITIAL_STATE = {
   data: {},
   errors: {
-    fetchRandomJoke: {},
+    fetchRandomJoke: null,
   },
   loading: {
-    fetchRandomJoke: {},
+    fetchRandomJoke: null,
   },
 };
 

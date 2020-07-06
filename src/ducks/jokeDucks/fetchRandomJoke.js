@@ -4,7 +4,7 @@ export const FETCH_RANDOM_JOKE_FAILED = '@joke/FETCH_RANDOM_JOKE_FAILED';
 export const FETCH_RANDOM_JOKE_SUCCESS = '@joke/FETCH_RANDOM_JOKE_SUCCESS';
 
 /* Action creators */
-export const callFetchRandomJoke = (categoryName) => ({
+export const callFetchRandomJoke = categoryName => ({
   type: CALL_FETCH_RANDOM_JOKE,
   categoryName,
 });
@@ -22,57 +22,40 @@ export const fetchRandomJokeSuccess = (categoryName, joke) => ({
 });
 
 /* Action handlers */
-export const onCallFetchRandomJoke = (state, { categoryName }) => ({
+export const onCallFetchRandomJoke = (state) => ({
   ...state,
+  data: {},
   errors: {
     ...state.errors,
-    fetchRandomJoke: {
-      ...state.errors.fetchRandomJoke,
-      [categoryName]: null,
-    },
+    fetchRandomJoke: false,
   },
   loading: {
     ...state.loading,
-    fetchRandomJoke: {
-      ...state.loading.fetchRandomJoke,
-      [categoryName]: true,
-    },
+    fetchRandomJoke: true,
   },
 });
 
-export const onFetchRandomJokeFailed = (state, { categoryName, error }) => ({
+export const onFetchRandomJokeFailed = (state, { error }) => ({
   ...state,
   errors: {
     ...state.errors,
-    fetchRandomJoke: {
-      ...state.errors.fetchRandomJoke,
-      [categoryName]: error,
-    },
+    fetchRandomJoke: error,
   },
   loading: {
     ...state.loading,
-    fetchRandomJoke: {
-      ...state.loading.fetchRandomJoke,
-      [categoryName]: false,
-    },
+    fetchRandomJoke: false,
   },
 });
 
-export const onFetchRandomJokeSuccess = (state, { categoryName, joke }) => ({
+export const onFetchRandomJokeSuccess = (state, { joke }) => ({
   ...state,
   data: joke,
   errors: {
     ...state.errors,
-    fetchRandomJoke: {
-      ...state.errors.fetchRandomJoke,
-      [categoryName]: false,
-    },
+    fetchRandomJoke: false,
   },
   loading: {
     ...state.loading,
-    fetchRandomJoke: {
-      ...state.loading.fetchRandomJoke,
-      [categoryName]: false,
-    },
+    fetchRandomJoke: false,
   },
 });
