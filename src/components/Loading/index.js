@@ -1,6 +1,6 @@
 import React from 'react';
 import Circle from './style';
 
-const Loading = () => <Circle />;
+const Loading = () => <p>Loading...</p>;
 
 export default Loading;
