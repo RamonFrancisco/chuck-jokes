@@ -9,15 +9,12 @@ export const callFetchRandomJoke = categoryName => ({
   categoryName,
 });
 
-export const fetchRandomJokeFailed = (categoryName, error) => ({
+export const fetchRandomJokeFailed = () => ({
   type: FETCH_RANDOM_JOKE_FAILED,
-  categoryName,
-  error,
 });
 
-export const fetchRandomJokeSuccess = (categoryName, joke) => ({
+export const fetchRandomJokeSuccess = joke => ({
   type: FETCH_RANDOM_JOKE_SUCCESS,
-  categoryName,
   joke,
 });
 
@@ -35,11 +32,11 @@ export const onCallFetchRandomJoke = (state) => ({
   },
 });
 
-export const onFetchRandomJokeFailed = (state, { error }) => ({
+export const onFetchRandomJokeFailed = state => ({
   ...state,
   errors: {
     ...state.errors,
-    fetchRandomJoke: error,
+    fetchRandomJoke: true,
   },
   loading: {
     ...state.loading,

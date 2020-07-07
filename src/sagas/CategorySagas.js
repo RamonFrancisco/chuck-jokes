@@ -16,7 +16,7 @@ function* callCategoriesSaga() {
 
     yield put(callCategoriesSuccess(data));
   } catch (error) {
-    yield put(callCategoriesFailed(error));
+    yield put(callCategoriesFailed());
   }
 }
 

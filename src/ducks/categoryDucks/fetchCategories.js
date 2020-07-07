@@ -8,9 +8,8 @@ export const callCategories = () => ({
   type: CALL_CATEGORIES,
 });
 
-export const callCategoriesFailed = (error) => ({
+export const callCategoriesFailed = () => ({
   type: CALL_CATEGORIES_FAILED,
-  error,
 });
 
 export const callCategoriesSuccess = (categories) => ({
@@ -31,11 +30,11 @@ export const onCallCategories = (state) => ({
   },
 });
 
-export const onCallCategoriesFailed = (state, { error }) => ({
+export const onCallCategoriesFailed = state => ({
   ...state,
   errors: {
     ...state.errors,
-    callCategories: error,
+    callCategories: true,
   },
   loading: {
     ...state.loading,

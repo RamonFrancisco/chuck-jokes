@@ -12,9 +12,9 @@ function* callFetchRandomJokeSaga({ categoryName }) {
   try {
     const joke = yield call(ChuckNorrisAPI.fetchRandomJoke, { categoryName });
 
-    yield put(fetchRandomJokeSuccess(categoryName, joke));
+    yield put(fetchRandomJokeSuccess(joke));
   } catch (error) {
-    yield put(fetchRandomJokeFailed(categoryName, error));
+    yield put(fetchRandomJokeFailed());
   }
 }
 

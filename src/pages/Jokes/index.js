@@ -8,6 +8,7 @@ import { callFetchRandomJoke } from '../../ducks/jokeDucks/fetchRandomJoke';
 
 import Button from '../../components/Button';
 import Container from '../../components/Container';
+import Error from '../../components/Error';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
@@ -27,6 +28,7 @@ const Jokes = () => {
 
   const data = useSelector(({ jokes }) => jokes.data);
   const loading = useSelector(({ jokes }) => jokes.loading.fetchRandomJoke);
+  const error = useSelector(({ jokes }) => jokes.errors.fetchRandomJoke);
   const handleJokeRequest = useCallback(
     () => dispatch(callFetchRandomJoke(categoryName)),
     [dispatch, categoryName],
@@ -40,27 +42,33 @@ const Jokes = () => {
     <>
       <Header />
       <Container>
-        <Content>
-          {loading
-            ? (<Loading />)
-            : (<>
-              <BackCategories to={ROUTE_HOME}>
-                <BsArrowLeftShort /> back
-              </BackCategories>
-              <JokeContent>
-                <JokeImage src={data.icon_url} alt="Chuck Norris" />
-                <div>
-                  <JokeText>{data.value}</JokeText>
-                  <JokeSmallText>
-                    category: {categoryName}
-                  </JokeSmallText>
-                </div>
-              </JokeContent>
-            </>
-            )
-          }
-          <Button onClick={handleJokeRequest}>See another joke</Button>
-        </Content>
+        {!error
+          ? (
+            <Content>
+              {loading
+                ? (<Loading />)
+                : (<>
+                  <BackCategories to={ROUTE_HOME}>
+                    <BsArrowLeftShort /> back
+                  </BackCategories>
+                  <JokeContent>
+                    <JokeImage src={data.icon_url} alt="Chuck Norris" />
+                    <div>
+                      <JokeText>{data.value}</JokeText>
+                      <JokeSmallText>
+                        category: {categoryName}
+                      </JokeSmallText>
+                    </div>
+                  </JokeContent>
+                </>)
+              }
+              <Button onClick={handleJokeRequest}>See another joke</Button>
+            </Content>)
+          : (<Error
+            title="Ops Failed to load joke!"
+            text="There was a failure to find the joke"
+            route={`/category/${categoryName}`} />)
+        }
       </Container>
       <Footer />
     </>
